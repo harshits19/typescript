@@ -48,7 +48,6 @@ const reducer = (state: CartStateType, action: ReducerAction): CartStateType => 
       return { ...state, cart: [...filteredCart, updatedItem] }
     }
     case REDUCER_ACTION_TYPE.SUBMIT: {
-      if (!action.payload) throw new Error("action.payload missing in ADD action")
       return { ...state, cart: [] }
     }
     default:
