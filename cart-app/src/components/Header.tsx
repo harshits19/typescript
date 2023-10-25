@@ -1,5 +1,6 @@
 import Nav from "./Nav"
 import useCart from "../hooks/useCart"
+import { ReactElement } from "react"
 
 type HeaderProps = {
   viewCart: boolean
@@ -8,7 +9,7 @@ type HeaderProps = {
 const Header = ({ viewCart, setViewCart }: HeaderProps) => {
   const { totalItems, totalPrice } = useCart()
 
-  const content = (
+  const content: ReactElement = (
     <header className="header">
       <div className="header__title-bar">
         <h1>Harshits</h1>

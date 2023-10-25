@@ -13,10 +13,10 @@ const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS }: CartLineItemProps) =>
   const lineTotal: number = item.qty * item.price
   const highestQty: number = 20 > item.qty ? 20 : item.qty
   const optionValues: number[] = [...Array(highestQty).keys()].map((i) => i + 1)
-  const options: ReactElement[] = optionValues.map((item) => {
+  const options: ReactElement[] = optionValues.map((val) => {
     return (
-      <option key={`opt${item}`} value={item}>
-        {item}
+      <option key={`opt${val}`} value={val} selected={val === item.qty}>
+        {val}
       </option>
     )
   })
@@ -39,7 +39,7 @@ const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS }: CartLineItemProps) =>
       <label htmlFor="itemQty" className="offscreen">
         Item Quantity
       </label>
-      <select aria-label="Item Quantity" onChange={onChangeQty} name="itemQty" id="itemQty" className="cart__select">
+      <select aria-label="Item Quantity" onChange={onChangeQty} name="itemQty" id="itemQty" className="cart__select" >
         {options}
       </select>
       <div className="cart__item-subtotal">{new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(lineTotal)}</div>
